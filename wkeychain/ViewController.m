@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WKeyChain.h"
 #import <Security/Security.h>
 
 @interface ViewController ()
@@ -19,7 +20,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self findDataItems];
+    
+    
+    NSString * value = [WKeyChain find:@"hello" group:@"AGD4F38NNV.com.dangsheng.test2"];
+    NSLog(@"%@",value);
+    
+    [WKeyChain set:@"hello" data:@"我在新项目中，由于整合了不少模块，感觉现有的这套机制有点点不够用。" group:@"AGD4F38NNV.com.dangsheng.test2"];
+    value = [WKeyChain find:@"hello" group:@"AGD4F38NNV.com.dangsheng.test2"];
+    NSLog(@"%@",value);
+    
+    //[self findDataItems];
     //    [self updateData];
     //    [self findData];
     //    [self findAttr];
