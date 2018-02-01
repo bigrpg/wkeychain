@@ -142,4 +142,44 @@
     return NO;
 }
 
++(NSArray * __nonnull) findAll:(NSString* __nullable) group
+{
+
+    NSDictionary *queryDict = nil;
+    if(group != nil)
+    {
+        queryDict = @{
+                        (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                        (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue,
+                        (__bridge id)kSecAttrAccessGroup:group,
+                        (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitAll
+                        /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
+                    };
+    }
+    else
+    {
+        queryDict = @{
+                      (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                      (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue,
+                      (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitAll
+                      /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
+                      };
+    }
+    
+    CFArrayRef arrayRef = NULL;
+    NSMutableArray * retArrays = [[NSMutableArray alloc] init];
+    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef*)&arrayRef);
+    if (state == errSecSuccess) {
+        NSArray *arrays = CFBridgingRelease(arrayRef);
+        
+        for(NSUInteger i=0;i<[arrays count];++i)
+        {
+            CFDataRef dataRef = (__bridge CFDataRef)[arrays objectAtIndex:i];
+            NSString *value = [[NSString alloc] initWithData:(__bridge_transfer NSData*)dataRef  encoding:NSUTF8StringEncoding];
+            [retArrays addObject:value];
+        }
+    }
+    return retArrays;
+}
+
 @end

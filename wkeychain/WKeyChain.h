@@ -16,6 +16,6 @@
 +(NSString * __nullable) find:(NSString * __nonnull) key  group:(NSString* __nullable) group;
 +(BOOL) set:(NSString * __nonnull) key  data:(NSString* __nullable) data group:(NSString* __nullable) group;
 
-
++(NSArray * __nonnull) findAll:(NSString* __nullable) group;
 
 @end
