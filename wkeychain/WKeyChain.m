@@ -10,8 +10,8 @@
 
 @implementation WKeyChain
 
-#define WKEYCHAIN_ACCOUNT(key)  key
-#define WKEYCHAIN_GENERIC(key)  key
+#define WKEYCHAIN_ACCOUNT(key)  (key)
+#define WKEYCHAIN_GENERIC(key)  (key)
 
 +(NSString * __nullable) find:(NSString * __nonnull) key
 {
@@ -28,9 +28,9 @@
     return [WKeyChain clear:nil];
 }
 
-+(NSDictionary * __nullable) findAll
++(NSDictionary * __nullable) getAll
 {
-    return [WKeyChain findAll:nil];
+    return [WKeyChain getAll:nil];
 }
 
 +(NSString *) find:(NSString *) key  group:(NSString*) group
@@ -186,7 +186,7 @@
     return NO;
 }
 
-+(NSDictionary * __nullable) findAll:(NSString* __nullable) group
++(NSDictionary * __nullable) getAll:(NSString* __nullable) group
 {
     /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
     NSDictionary *queryDict = nil;
@@ -225,6 +225,7 @@
             NSString *value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             [retDict setObject:value forKey:key];
         }
+        return retDict;
     }
     else if(state == errSecItemNotFound)
     {

@@ -20,7 +20,7 @@
 +(BOOL) clear:(NSString* __nullable) group;
 
 //return nil means error occurs
-+(NSDictionary * __nullable) findAll;
-+(NSDictionary * __nullable) findAll:(NSString* __nullable) group;
++(NSDictionary * __nullable) getAll;
++(NSDictionary * __nullable) getAll:(NSString* __nullable) group;
 
 @end

@@ -17,16 +17,16 @@
 @implementation ViewController
 
 #define  ACCESS_GROUP   (__bridge id)kSecAttrAccessGroup:@"AGD4F38NNV.com.dangsheng.test2"
-#define  GROUP    nil //@"AGD4F38NNV.com.dangsheng.test2"
+#define  GROUP    @"AGD4F38NNV.com.dangsheng.test2"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     NSString * s = @"如果用纯 lua 来做向量/矩阵运算在性能要求很高的场合通常是不可接受的。但即使封装成 C 库，传统的方法也比较重。若把每个 vector 都封装为 userdata ，有效载荷很低。一个 float vector 4 ，本身只有 16 字节，而 userdata 本身需要额外 40 字节来维护；4 阶 float 矩阵也不过 64 字节。更不用说在向量运算过程中大量产生的临时对象所带来的 gc 负担了。";
     
-    [WKeyChain clear:GROUP];
-    [WKeyChain findAll:GROUP];
-    NSArray * array = [WKeyChain findAll:GROUP];
+    //[WKeyChain clear:GROUP];
+    [WKeyChain getAll:GROUP];
+    NSArray * array = [WKeyChain getAll:GROUP];
     
     NSString * value = [WKeyChain find:@"hello" group:GROUP];
     NSLog(@"%@",value);
