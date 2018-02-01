@@ -17,16 +17,22 @@
 @implementation ViewController
 
 #define  ACCESS_GROUP   (__bridge id)kSecAttrAccessGroup:@"AGD4F38NNV.com.dangsheng.test2"
+#define  GROUP    @"AGD4F38NNV.com.dangsheng.test21"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    NSString * s = @"如果用纯 lua 来做向量/矩阵运算在性能要求很高的场合通常是不可接受的。但即使封装成 C 库，传统的方法也比较重。若把每个 vector 都封装为 userdata ，有效载荷很低。一个 float vector 4 ，本身只有 16 字节，而 userdata 本身需要额外 40 字节来维护；4 阶 float 矩阵也不过 64 字节。更不用说在向量运算过程中大量产生的临时对象所带来的 gc 负担了。";
     
-    NSString * value = [WKeyChain find:@"hello" group:@"AGD4F38NNV.com.dangsheng.test2"];
+    
+    NSString * value = [WKeyChain find:@"hello" group:GROUP];
     NSLog(@"%@",value);
     
-    [WKeyChain set:@"hello" data:@"我在新项目中，由于整合了不少模块，感觉现有的这套机制有点点不够用。" group:@"AGD4F38NNV.com.dangsheng.test2"];
-    value = [WKeyChain find:@"hello" group:@"AGD4F38NNV.com.dangsheng.test2"];
+    if(value != nil)
+        [WKeyChain set:@"hello" data:nil group:GROUP];
+    else
+        [WKeyChain set:@"hello" data:s group:GROUP];
+    value = [WKeyChain find:@"hello" group:GROUP];
     NSLog(@"%@",value);
     
     //[self findDataItems];
@@ -136,7 +142,7 @@
 {
     NSString *key = @"hello";
     NSString *server = [[NSBundle mainBundle] bundleIdentifier];
-    NSDictionary *queueDict = @{
+    NSDictionary *queryDict = @{
                                 (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                                 //(__bridge id)kSecAttrService:server,
                                 //(__bridge id)kSecAttrAccount:key,
@@ -147,7 +153,7 @@
                                 /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
                                 };
     CFDataRef dataRef = NULL;
-    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queueDict, (CFTypeRef*)&dataRef);
+    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef*)&dataRef);
     if (state == errSecSuccess) {
         NSString *value = [[NSString alloc] initWithData:(__bridge_transfer NSData*)dataRef encoding:NSUTF8StringEncoding];
         NSLog(@"value:%@",value);
@@ -163,7 +169,7 @@
 {
     NSString *key = @"hello";
     NSString *server = [[NSBundle mainBundle] bundleIdentifier];
-    NSDictionary *queueDict = @{
+    NSDictionary *queryDict = @{
                                 (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                                 //(__bridge id)kSecAttrService:server,
                                 //(__bridge id)kSecAttrAccount:@"100",
@@ -174,7 +180,7 @@
                                 /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
                                 };
     CFArrayRef arrayRef = NULL;
-    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queueDict, (CFTypeRef*)&arrayRef);
+    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef*)&arrayRef);
     if (state == errSecSuccess) {
         NSArray *arrays = CFBridgingRelease(arrayRef);
         for(NSUInteger i=0;i<[arrays count];++i)

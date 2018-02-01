@@ -2,7 +2,7 @@
 //  WKeyChain.m
 //  wkeychain
 //
-//  Created by wang on 2/1/18.
+//  Created by yuanming wang on 2/1/18.
 //  Copyright © 2018 zulong. All rights reserved.
 //
 
@@ -10,13 +10,14 @@
 
 @implementation WKeyChain
 
-#define WKEYCHAIN_ACCOUNT(key)  @"100"
+#define WKEYCHAIN_ACCOUNT(key)  key
 #define WKEYCHAIN_GENERIC(key)  key
 
 +(NSString * __nullable) find:(NSString * __nonnull) key
 {
     return [WKeyChain find:key group:nil];
 }
+
 +(BOOL) set:(NSString * __nonnull) key  data:(NSString* __nullable) data
 {
     return [WKeyChain set:key data:data group:nil];
@@ -24,12 +25,11 @@
 
 +(NSString *) find:(NSString *) key  group:(NSString*) group
 {
-    NSString * data = nil;
-    NSDictionary *queueDict = nil;
-    
+    //query dictionary
+    NSDictionary *queryDict = nil;
     if( group != nil)
     {
-        queueDict = @{
+        queryDict = @{
                         (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                         (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
                         (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
@@ -40,7 +40,7 @@
     }
     else
     {
-        queueDict = @{
+        queryDict = @{
                         (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                         (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
                         (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
@@ -48,43 +48,46 @@
                         (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne
                       };
     }
+    //
     
     CFDataRef dataRef = NULL;
-    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queueDict, (CFTypeRef*)&dataRef);
+    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef*)&dataRef);
     if (state == errSecSuccess) {
-        data  = [[NSString alloc] initWithData:(__bridge_transfer NSData*)dataRef encoding:NSUTF8StringEncoding];
-        NSLog(@"data:%@",data);
+        NSString * data  = [[NSString alloc] initWithData:(__bridge_transfer NSData*)dataRef encoding:NSUTF8StringEncoding];
+        return data;
     }
-    return data;
+    return nil;
 }
 
 +(BOOL) set:(NSString *) key  data:(NSString* ) data group:(NSString*) group
 {
-    NSDictionary *queueDict = nil;
+    //query dictionary
+    NSDictionary *queryDict = nil;
     if( group != nil)
     {
-        queueDict  = @{
+        queryDict  = @{
                         (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                         (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
                         (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
                         (__bridge id)kSecAttrAccessGroup:group,
-                        };
+                      };
     }
     else
     {
-        queueDict  = @{
-                       (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
-                       (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
-                       (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
-                       };
+        queryDict  = @{
+                        (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                        (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
+                        (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
+                      };
     }
+    //
     
-    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queueDict, NULL);
+    OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, NULL);
     //exist
     if (state == errSecSuccess) {
         if(data == nil) //remove
         {
-            OSStatus deleteState = SecItemDelete((__bridge CFDictionaryRef)queueDict);
+            OSStatus deleteState = SecItemDelete((__bridge CFDictionaryRef)queryDict);
             if (deleteState == errSecSuccess) {
                 NSLog(@"remove success");
                 return YES;
@@ -96,7 +99,7 @@
             NSDictionary *paramSetDict = @{
                                         (__bridge id)kSecValueData:newData
                                         };
-            OSStatus updateState = SecItemUpdate((__bridge CFDictionaryRef)queueDict, (__bridge CFDictionaryRef)paramSetDict);
+            OSStatus updateState = SecItemUpdate((__bridge CFDictionaryRef)queryDict, (__bridge CFDictionaryRef)paramSetDict);
             if (updateState == errSecSuccess) {
                 NSLog(@"update success");
                 return YES;
@@ -111,7 +114,7 @@
             
             if(group != nil)
             {
-                queueDict = @{
+                queryDict = @{
                            (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                            (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
                            (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
@@ -121,7 +124,7 @@
             }
             else
             {
-                queueDict = @{
+                queryDict = @{
                          (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                          (__bridge id)kSecAttrAccount:WKEYCHAIN_ACCOUNT(key),
                          (__bridge id)kSecAttrGeneric:WKEYCHAIN_GENERIC(key),
@@ -129,7 +132,7 @@
                          };
             }
             CFTypeRef typeResult = NULL;
-            OSStatus state =  SecItemAdd((__bridge CFDictionaryRef)queueDict, &typeResult);
+            OSStatus state =  SecItemAdd((__bridge CFDictionaryRef)queryDict, &typeResult);
             if (state == errSecSuccess) {
                 NSLog(@"add secceed");
                 return YES;
