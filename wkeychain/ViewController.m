@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self deleteData];
+    [self findDataItems];
     //    [self updateData];
     //    [self findData];
     //    [self findAttr];
