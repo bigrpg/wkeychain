@@ -23,6 +23,16 @@
     return [WKeyChain set:key data:data group:nil];
 }
 
++(BOOL) clear
+{
+    return [WKeyChain clear:nil];
+}
+
++(NSDictionary * __nullable) findAll
+{
+    return [WKeyChain findAll:nil];
+}
+
 +(NSString *) find:(NSString *) key  group:(NSString*) group
 {
     //query dictionary
@@ -142,44 +152,85 @@
     return NO;
 }
 
-+(NSArray * __nonnull) findAll:(NSString* __nullable) group
++(BOOL) clear:(NSString* __nullable) group
 {
 
+    /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
     NSDictionary *queryDict = nil;
     if(group != nil)
     {
         queryDict = @{
                         (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
                         (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue,
-                        (__bridge id)kSecAttrAccessGroup:group,
-                        (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitAll
-                        /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
+                        (__bridge id)kSecAttrAccessGroup:group
                     };
     }
     else
     {
         queryDict = @{
                       (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                      (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue
+                    };
+    }
+    
+    OSStatus deleteState = SecItemDelete((__bridge CFDictionaryRef)queryDict);
+    if (deleteState == errSecSuccess) {
+        NSLog(@"clear success");
+        return YES;
+    }
+    else if(deleteState == errSecItemNotFound)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
++(NSDictionary * __nullable) findAll:(NSString* __nullable) group
+{
+    /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
+    NSDictionary *queryDict = nil;
+    if(group != nil)
+    {
+        queryDict = @{
+                      (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                      (__bridge id)kSecReturnRef : (__bridge id)kCFBooleanTrue,
+                      (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue,
+                      (__bridge id)kSecAttrAccessGroup:group,
+                      (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitAll
+                    };
+    }
+    else
+    {
+        queryDict = @{
+                      (__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
+                      (__bridge id)kSecReturnRef : (__bridge id)kCFBooleanTrue,
                       (__bridge id)kSecReturnData:(__bridge id)kCFBooleanTrue,
                       (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitAll
-                      /*当为kSecMatchLimit时，SecItemCopyMatching第二个参数为CFArrayRef，元素为CFDataRef*/
-                      };
+                    };
     }
     
     CFArrayRef arrayRef = NULL;
-    NSMutableArray * retArrays = [[NSMutableArray alloc] init];
+    NSMutableDictionary * retDict = [[NSMutableDictionary alloc] init];
     OSStatus state = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef*)&arrayRef);
     if (state == errSecSuccess) {
         NSArray *arrays = CFBridgingRelease(arrayRef);
-        
         for(NSUInteger i=0;i<[arrays count];++i)
         {
-            CFDataRef dataRef = (__bridge CFDataRef)[arrays objectAtIndex:i];
-            NSString *value = [[NSString alloc] initWithData:(__bridge_transfer NSData*)dataRef  encoding:NSUTF8StringEncoding];
-            [retArrays addObject:value];
+            CFTypeRef dataRef = (__bridge CFTypeRef)[arrays objectAtIndex:i];
+            NSDictionary *dict = (__bridge NSDictionary *)dataRef;
+            NSString *key = dict[(id)kSecAttrGeneric];
+            //NSString * account = dict[(id)kSecAttrAccount];
+            NSData *data = dict[(id)kSecValueData];
+            NSString *value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            [retDict setObject:value forKey:key];
         }
     }
-    return retArrays;
+    else if(state == errSecItemNotFound)
+    {
+        return retDict;
+    }
+    return nil;
 }
 
 @end
