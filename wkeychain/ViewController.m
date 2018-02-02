@@ -26,7 +26,7 @@
     
     //[WKeyChain clear:GROUP];
     [WKeyChain getAll:GROUP];
-    NSArray * array = [WKeyChain getAll:GROUP];
+    NSDictionary * dict = [WKeyChain getAll:GROUP];
     
     NSString * value = [WKeyChain find:@"hello" group:GROUP];
     NSLog(@"%@",value);
@@ -37,7 +37,7 @@
     }
     else
     {
-        [WKeyChain set:@"hello" data:s group:GROUP];
+        [WKeyChain set:@"hello" value:s group:GROUP];
     }
     value = [WKeyChain find:@"hello" group:GROUP];
     NSLog(@"%@",value);
