@@ -18,10 +18,10 @@
 +(BOOL) setData :(NSString * __nonnull) key  value:(NSData* __nullable)     value group:(NSString* __nullable) group;
 
 //return nil means error occurs
-//{NSString,NSData}
-+(NSDictionary * __nullable) getAllData:(NSString* __nullable)  group;
 //{NSString,NSString}
 +(NSDictionary * __nullable) getAll:(NSString* __nullable)      group;
+//{NSString,NSData}
++(NSDictionary * __nullable) getAllData:(NSString* __nullable)  group;
 
 +(BOOL) clear:(NSString* __nullable) group;
 
