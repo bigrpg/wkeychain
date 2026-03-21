@@ -28,5 +28,11 @@
             {'mealTime':'Lunch', meal: ['ManTou','BaoZi','YouTiao']},
             {'mealTime':'Dinner',meal: ['ManTou','BaoZi','YouTiao']},
             {'mealTime':'Morning_Extra',meal: ['ManTou','BaoZi','YouTiao']}
+        ]},
+        {'date':'2024-06-05',oneDayMeal:[
+            {'mealTime':'Breakfast', meal: ['ManTou','BaoZi','YouTiao']},
+            {'mealTime':'Lunch', meal: ['ManTou','BaoZi','YouTiao','MiFan']},
+            {'mealTime':'Dinner',meal: ['ManTou','BaoZi','YouTiao']},
+            {'mealTime':'Morning_Extra',meal: ['ManTou','BaoZi','YouTiao']}
         ]}
     ]
