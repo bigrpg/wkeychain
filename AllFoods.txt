@@ -1,0 +1,443 @@
+{
+    "芹菜猪肉包": {
+        "FoodType": 1,
+        "ReLiang": 220,
+        "DanBaiZhi": 8.5,
+        "ZhiFang": 7.2,
+        "GI": 65
+    },
+    "茴香鸡蛋包": {
+        "FoodType": 1,
+        "ReLiang": 200,
+        "DanBaiZhi": 7.8,
+        "ZhiFang": 6.5,
+        "GI": 63
+    },
+    "杂粮煎饼": {
+        "FoodType": 1,
+        "ReLiang": 180,
+        "DanBaiZhi": 6.2,
+        "ZhiFang": 3.5,
+        "GI": 55
+    },
+    "手抓饼": {
+        "FoodType": 1,
+        "ReLiang": 300,
+        "DanBaiZhi": 7.0,
+        "ZhiFang": 18.5,
+        "GI": 70
+    },
+    "煎面包片": {
+        "FoodType": 1,
+        "ReLiang": 150,
+        "DanBaiZhi": 5.8,
+        "ZhiFang": 6.0,
+        "GI": 75
+    },
+    "鸡蛋饼": {
+        "FoodType": 1,
+        "ReLiang": 190,
+        "DanBaiZhi": 7.5,
+        "ZhiFang": 9.2,
+        "GI": 68
+    },
+    "炸香芋丸": {
+        "FoodType": 0,
+        "ReLiang": 280,
+        "DanBaiZhi": 4.2,
+        "ZhiFang": 15.6,
+        "GI": 60
+    },
+    "油饼": {
+        "FoodType": 1,
+        "ReLiang": 390,
+        "DanBaiZhi": 6.8,
+        "ZhiFang": 22.5,
+        "GI": 78
+    },
+    "天使蛋糕": {
+        "FoodType": 0,
+        "ReLiang": 250,
+        "DanBaiZhi": 5.5,
+        "ZhiFang": 10.2,
+        "GI": 72
+    },
+    "芝士三明治": {
+        "FoodType": 0,
+        "ReLiang": 270,
+        "DanBaiZhi": 12.5,
+        "ZhiFang": 13.8,
+        "GI": 65
+    },
+    "黄油饼干": {
+        "FoodType": 0,
+        "ReLiang": 450,
+        "DanBaiZhi": 8.2,
+        "ZhiFang": 22.5,
+        "GI": 70
+    },
+    "煎鸡蛋": {
+        "FoodType": 5,
+        "ReLiang": 130,
+        "DanBaiZhi": 12.0,
+        "ZhiFang": 9.0,
+        "GI": 30
+    },
+    "水煮鸡蛋": {
+        "FoodType": 5,
+        "ReLiang": 155,
+        "DanBaiZhi": 13.3,
+        "ZhiFang": 10.5,
+        "GI": 30
+    },
+    "茶叶蛋": {
+        "FoodType": 5,
+        "ReLiang": 140,
+        "DanBaiZhi": 12.8,
+        "ZhiFang": 9.5,
+        "GI": 30
+    },
+    "黄豆芽炒粉条": {
+        "FoodType": 1,
+        "ReLiang": 160,
+        "DanBaiZhi": 5.2,
+        "ZhiFang": 6.5,
+        "GI": 62
+    },
+    "小米南瓜粥": {
+        "FoodType": 1,
+        "ReLiang": 80,
+        "DanBaiZhi": 2.5,
+        "ZhiFang": 1.0,
+        "GI": 50
+    },
+    "汤面": {
+        "FoodType": 1,
+        "ReLiang": 130,
+        "DanBaiZhi": 4.5,
+        "ZhiFang": 3.2,
+        "GI": 65
+    },
+    "豆腐脑": {
+        "FoodType": 5,
+        "ReLiang": 50,
+        "DanBaiZhi": 4.8,
+        "ZhiFang": 1.5,
+        "GI": 25
+    },
+    "牛奶": {
+        "FoodType": 5,
+        "ReLiang": 54,
+        "DanBaiZhi": 3.2,
+        "ZhiFang": 3.8,
+        "GI": 27
+    },
+    "豆浆": {
+        "FoodType": 5,
+        "ReLiang": 30,
+        "DanBaiZhi": 2.5,
+        "ZhiFang": 1.0,
+        "GI": 25
+    },
+    "紫菜蛋花汤": {
+        "FoodType": 3,
+        "ReLiang": 40,
+        "DanBaiZhi": 3.8,
+        "ZhiFang": 1.2,
+        "GI": 15
+    },
+    "蛋挞": {
+        "FoodType": 0,
+        "ReLiang": 200,
+        "DanBaiZhi": 4.5,
+        "ZhiFang": 12.8,
+        "GI": 68
+    },
+    "红烧狮子头": {
+        "FoodType": 2,
+        "ReLiang": 280,
+        "DanBaiZhi": 18.5,
+        "ZhiFang": 20.2,
+        "GI": 40
+    },
+    "虾仁西兰花": {
+        "FoodType": 3,
+        "ReLiang": 85,
+        "DanBaiZhi": 7.2,
+        "ZhiFang": 3.5,
+        "GI": 20
+    },
+    "小炒香芹肉片": {
+        "FoodType": 2,
+        "ReLiang": 150,
+        "DanBaiZhi": 12.5,
+        "ZhiFang": 8.8,
+        "GI": 30
+    },
+    "小白菜炒鸡蛋": {
+        "FoodType": 3,
+        "ReLiang": 70,
+        "DanBaiZhi": 6.5,
+        "ZhiFang": 4.2,
+        "GI": 18
+    },
+    "蒜蓉盖菜": {
+        "FoodType": 3,
+        "ReLiang": 35,
+        "DanBaiZhi": 2.8,
+        "ZhiFang": 1.0,
+        "GI": 15
+    },
+    "米饭": {
+        "FoodType": 1,
+        "ReLiang": 116,
+        "DanBaiZhi": 2.6,
+        "ZhiFang": 0.3,
+        "GI": 73
+    },
+    "杂粮饭": {
+        "FoodType": 1,
+        "ReLiang": 100,
+        "DanBaiZhi": 3.2,
+        "ZhiFang": 0.8,
+        "GI": 50
+    },
+    "酱香饼": {
+        "FoodType": 1,
+        "ReLiang": 320,
+        "DanBaiZhi": 7.5,
+        "ZhiFang": 18.5,
+        "GI": 70
+    },
+    "杂粮小馒头": {
+        "FoodType": 1,
+        "ReLiang": 90,
+        "DanBaiZhi": 3.0,
+        "ZhiFang": 1.2,
+        "GI": 55
+    },
+    "清汤水饺": {
+        "FoodType": 1,
+        "ReLiang": 180,
+        "DanBaiZhi": 7.8,
+        "ZhiFang": 6.5,
+        "GI": 60
+    },
+    "蒸紫薯": {
+        "FoodType": 1,
+        "ReLiang": 77,
+        "DanBaiZhi": 2.3,
+        "ZhiFang": 0.2,
+        "GI": 77
+    },
+    "苹果": {
+        "FoodType": 4,
+        "ReLiang": 52,
+        "DanBaiZhi": 0.2,
+        "ZhiFang": 0.2,
+        "GI": 36
+    },
+    "耙耙柑": {
+        "FoodType": 4,
+        "ReLiang": 44,
+        "DanBaiZhi": 0.8,
+        "ZhiFang": 0.2,
+        "GI": 40
+    },
+    "香蕉": {
+        "FoodType": 4,
+        "ReLiang": 91,
+        "DanBaiZhi": 1.4,
+        "ZhiFang": 0.2,
+        "GI": 51
+    },
+    "酸奶": {
+        "FoodType": 5,
+        "ReLiang": 72,
+        "DanBaiZhi": 2.5,
+        "ZhiFang": 2.7,
+        "GI": 48
+    },
+    "培根披萨": {
+        "FoodType": 0,
+        "ReLiang": 230,
+        "DanBaiZhi": 10.5,
+        "ZhiFang": 12.8,
+        "GI": 60
+    },
+    "红豆大米粥": {
+        "FoodType": 1,
+        "ReLiang": 90,
+        "DanBaiZhi": 2.8,
+        "ZhiFang": 0.5,
+        "GI": 45
+    },
+    "番茄蛋汤": {
+        "FoodType": 3,
+        "ReLiang": 35,
+        "DanBaiZhi": 3.2,
+        "ZhiFang": 1.5,
+        "GI": 15
+    },
+    "小炒香芹鸡肉片": {
+        "FoodType": 2,
+        "ReLiang": 130,
+        "DanBaiZhi": 15.2,
+        "ZhiFang": 6.5,
+        "GI": 25
+    },
+    "油菜炒鸡蛋": {
+        "FoodType": 3,
+        "ReLiang": 65,
+        "DanBaiZhi": 6.2,
+        "ZhiFang": 3.8,
+        "GI": 18
+    },
+    "香菇油菜": {
+        "FoodType": 3,
+        "ReLiang": 40,
+        "DanBaiZhi": 2.5,
+        "ZhiFang": 1.2,
+        "GI": 15
+    },
+    "葱花饼": {
+        "FoodType": 1,
+        "ReLiang": 300,
+        "DanBaiZhi": 7.2,
+        "ZhiFang": 16.5,
+        "GI": 75
+    },
+    "蒸玉米": {
+        "FoodType": 1,
+        "ReLiang": 106,
+        "DanBaiZhi": 4.0,
+        "ZhiFang": 1.2,
+        "GI": 55
+    },
+    "芸豆焖猪蹄": {
+        "FoodType": 2,
+        "ReLiang": 260,
+        "DanBaiZhi": 22.5,
+        "ZhiFang": 18.8,
+        "GI": 35
+    },
+    "冬瓜粉丝牛肉丸": {
+        "FoodType": 2,
+        "ReLiang": 140,
+        "DanBaiZhi": 15.8,
+        "ZhiFang": 7.5,
+        "GI": 30
+    },
+    "脆笋炒腊肉": {
+        "FoodType": 2,
+        "ReLiang": 180,
+        "DanBaiZhi": 12.5,
+        "ZhiFang": 13.2,
+        "GI": 25
+    },
+    "牛肉沫蒸水蛋": {
+        "FoodType": 2,
+        "ReLiang": 120,
+        "DanBaiZhi": 14.2,
+        "ZhiFang": 6.8,
+        "GI": 28
+    },
+    "蒜蓉快菜": {
+        "FoodType": 3,
+        "ReLiang": 30,
+        "DanBaiZhi": 2.2,
+        "ZhiFang": 0.8,
+        "GI": 15
+    },
+    "豆沙包": {
+        "FoodType": 1,
+        "ReLiang": 210,
+        "DanBaiZhi": 4.5,
+        "ZhiFang": 5.2,
+        "GI": 65
+    },
+    "兰州拉面": {
+        "FoodType": 1,
+        "ReLiang": 120,
+        "DanBaiZhi": 4.2,
+        "ZhiFang": 2.8,
+        "GI": 68
+    },
+    "香煎鱼排": {
+        "FoodType": 2,
+        "ReLiang": 180,
+        "DanBaiZhi": 20.5,
+        "ZhiFang": 9.8,
+        "GI": 30
+    },
+    "蒸山药": {
+        "FoodType": 1,
+        "ReLiang": 57,
+        "DanBaiZhi": 1.9,
+        "ZhiFang": 0.2,
+        "GI": 51
+    },
+    "黄千禧柿子": {
+        "FoodType": 4,
+        "ReLiang": 25,
+        "DanBaiZhi": 0.8,
+        "ZhiFang": 0.1,
+        "GI": 30
+    },
+    "水果黄瓜": {
+        "FoodType": 4,
+        "ReLiang": 15,
+        "DanBaiZhi": 0.6,
+        "ZhiFang": 0.2,
+        "GI": 15
+    },
+    "草莓蛋卷": {
+        "FoodType": 0,
+        "ReLiang": 220,
+        "DanBaiZhi": 5.2,
+        "ZhiFang": 10.5,
+        "GI": 65
+    },
+    "原味饼干": {
+        "FoodType": 0,
+        "ReLiang": 400,
+        "DanBaiZhi": 7.5,
+        "ZhiFang": 18.2,
+        "GI": 70
+    },
+    "小米粥": {
+        "FoodType": 1,
+        "ReLiang": 46,
+        "DanBaiZhi": 1.4,
+        "ZhiFang": 0.7,
+        "GI": 45
+    },
+    "西红柿鸡蛋汤": {
+        "FoodType": 3,
+        "ReLiang": 38,
+        "DanBaiZhi": 3.5,
+        "ZhiFang": 1.8,
+        "GI": 15
+    },
+    "肉夹馍": {
+        "FoodType": 1,
+        "ReLiang": 280,
+        "DanBaiZhi": 12.5,
+        "ZhiFang": 15.8,
+        "GI": 68
+    },
+    "酸汤水饺": {
+        "FoodType": 1,
+        "ReLiang": 200,
+        "DanBaiZhi": 8.2,
+        "ZhiFang": 7.5,
+        "GI": 62
+    },
+    "疙瘩汤": {
+        "FoodType": 1,
+        "ReLiang": 100,
+        "DanBaiZhi": 3.5,
+        "ZhiFang": 2.5,
+        "GI": 55
+    }
+}
