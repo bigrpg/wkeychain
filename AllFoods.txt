@@ -42,7 +42,7 @@
         "GI": 68
     },
     "炸香芋丸": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 280,
         "DanBaiZhi": 4.2,
         "ZhiFang": 15.6,
@@ -56,21 +56,21 @@
         "GI": 78
     },
     "天使蛋糕": {
-        "FoodType": 0,
+        "FoodType": ,
         "ReLiang": 250,
         "DanBaiZhi": 5.5,
         "ZhiFang": 10.2,
         "GI": 72
     },
     "芝士三明治": {
-        "FoodType": 0,
+        "FoodType": ,
         "ReLiang": 270,
         "DanBaiZhi": 12.5,
         "ZhiFang": 13.8,
         "GI": 65
     },
     "黄油饼干": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 450,
         "DanBaiZhi": 8.2,
         "ZhiFang": 22.5,
@@ -147,7 +147,7 @@
         "GI": 15
     },
     "蛋挞": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 200,
         "DanBaiZhi": 4.5,
         "ZhiFang": 12.8,
@@ -259,7 +259,7 @@
         "GI": 48
     },
     "培根披萨": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 230,
         "DanBaiZhi": 10.5,
         "ZhiFang": 12.8,
@@ -392,14 +392,14 @@
         "GI": 15
     },
     "草莓蛋卷": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 220,
         "DanBaiZhi": 5.2,
         "ZhiFang": 10.5,
         "GI": 65
     },
     "原味饼干": {
-        "FoodType": 0,
+        "FoodType": 100,
         "ReLiang": 400,
         "DanBaiZhi": 7.5,
         "ZhiFang": 18.2,
