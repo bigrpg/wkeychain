@@ -56,14 +56,14 @@
         "GI": 78
     },
     "天使蛋糕": {
-        "FoodType": ,
+        "FoodType": 100,
         "ReLiang": 250,
         "DanBaiZhi": 5.5,
         "ZhiFang": 10.2,
         "GI": 72
     },
     "芝士三明治": {
-        "FoodType": ,
+        "FoodType": 100,
         "ReLiang": 270,
         "DanBaiZhi": 12.5,
         "ZhiFang": 13.8,
